@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation staggered</title>
+    <style>
+        #skeleton{
+            animation: fadeInUp 1s;
+        }
+
+        @keyframes fadeInUp {
+            from{
+                opacity: 0;
+                transform: translateY(20%);
+            }
+            to{
+                opacity:1;
+                transform: translateY(0%);
+            }
+        }
+
+        #bolt3, #bolt2, #bolt1{
+            opacity: 0;
+            animation: dropIn 8s ease forwards infinite;
+        }
+
+        @keyframes dropIn{
+            20% {
+                opacity: 0;
+                transform: translateY(-20%);
+            }
+            30%, 100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg width="254" height="357" viewBox="0 0 254 357" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="254" height="357" fill="#1E1E1E"/>
+        <rect id="Rectangle 1" width="254" height="357" fill="#D9D9D9"/>
+        <g id="skeleton">
+        <g id="Ellipse1">
+        <ellipse cx="81.5" cy="170" rx="22.5" ry="22" fill="#EFEEEE"/>
+        <ellipse cx="81.5" cy="170" rx="22.5" ry="22" fill="black" fill-opacity="0.2"/>
+        </g>
+        <g id="Ellipse2">
+        <ellipse cx="154" cy="125.5" rx="13" ry="13.5" fill="#F5F5F5"/>
+        <ellipse cx="154" cy="125.5" rx="13" ry="13.5" fill="black" fill-opacity="0.2"/>
+        </g>
+        <g id="Ellipse3">
+        <ellipse cx="141" cy="212" rx="28" ry="29" fill="#F2F1F1"/>
+        <ellipse cx="141" cy="212" rx="28" ry="29" fill="#F2F1F1"/>
+        <ellipse cx="141" cy="212" rx="28" ry="29" fill="#F2F1F1"/>
+        <ellipse cx="141" cy="212" rx="28" ry="29" fill="black" fill-opacity="0.2"/>
+        </g>
+        </g>
+        <g id="bolt">
+        <ellipse id="bolt3" cx="154" cy="125.5" rx="13" ry="13.5" fill="#FC7EFF"/>
+        <ellipse id="bolt2" cx="139" cy="212" rx="28" ry="29" fill="#EB04FF"/>
+        <ellipse id="bolt1" cx="81.5" cy="170" rx="22.5" ry="22" fill="#FF40D5"/>
+        </g>
+        </svg>
+</body>
+</html>

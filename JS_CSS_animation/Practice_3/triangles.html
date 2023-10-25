@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Animation</title>
+    <style>
+        :root {
+            --dark-color: #E41BDC;
+            --light-color:#FC7DFF;
+        }
+
+        svg{
+             cursor: pointer;
+        }
+
+        #darkGroup{
+            fill:var(--dark-color);
+        }
+
+        #lightGroup {
+            fill: var(--light-color);
+        }
+
+        #dark, 
+        #light1,
+        #dark2{
+            transition: all 1s ease;
+        }
+
+        #dark2{
+            transform: translateX(-100%)
+        }
+
+        svg:hover #light1{
+            transform: translateX(20%);
+        }
+
+        svg:hover #dark{
+            transform:translateX(40%);
+            opacity: 0;
+        }
+
+        svg :hover #dark2{
+            transform: translateX(0%);
+        }
+    </style>
+</head>
+<body>
+    <svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="triangle" clip-path="url(#clip0_1_2)"><rect width="120" height="100" fill="white"/>
+        <g id="darkGroup">
+            <path id="dark" opacity="0.75" d="M30.0087 45.2949C29.9834 43.7365 31.6712 42.7493 33.0171 43.5353L57.4718 57.8175C58.7931 58.5892 58.7937 60.4984 57.4729 61.2709L33.4786 75.3048C32.1578 76.0774 30.494 75.1409 30.4692 73.611L30.0087 45.2949Z" /> <!--The fills are removed beacause inline style are hard to overwrite-->
+            <path id="dark2" opacity="0.75" d="M11.0087 45.2949C10.9834 43.7365 12.6712 42.7493 14.0171 43.5353L38.4718 57.8175C39.7931 58.5892 39.7937 60.4984 38.4729 61.2709L14.4786 75.3048C13.1578 76.0774 11.494 75.1409 11.4692 73.611L11.0087 45.2949Z" />
+        </g>
+        <g id="lightGroup">
+            <path id="light1" opacity="0.5" d="M11.0087 45.2949C10.9834 43.7365 12.6712 42.7493 14.0171 43.5353L38.4718 57.8175C39.7931 58.5892 39.7937 60.4984 38.4729 61.2709L14.4786 75.3048C13.1578 76.0774 11.494 75.1409 11.4692 73.611L11.0087 45.2949Z" />
+        </g>
+        </g>
+        <defs>
+            <clipPath id="clip0_1_2">
+            <rect width="120" height="100" fill="white"/>
+            </clipPath>
+        </defs>
+    </svg>
+    <script>
+        const svg = document.getElementById('triangle');
+
+        svg.onclick = (e) => {
+            const colors = ['red', 'blue', 'green', 'orange', 'pink', 'purple']
+            const rando = () => colors[Math.floor(Math.random() * colors.length)]
+            document.documentElement.style.cssText = `
+            --dark-color:${rando()};
+            --light-color: ${rando()};
+
+            `
+        }    
+    </script>
+</body>
+</html>
